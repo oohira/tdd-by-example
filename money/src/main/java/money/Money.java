@@ -14,8 +14,9 @@ class Money implements Expression {
         return new Money(amount * multiplier, currency);
     }
 
-    Expression plus(Money added) {
-        return new Sum(this, added);
+    @Override
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
     }
 
     @Override
